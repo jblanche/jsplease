@@ -1,6 +1,6 @@
 feature: __defineGetter__
 status: avoid
-standard: true
+standard: false
 min_ie: false
 ff: old
 sf: old

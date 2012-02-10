@@ -57,7 +57,7 @@ non_standard_index = './data/es5-compat-table/non-standard/index.html'
 
     next unless feature
 
-    feature.standard = true unless doc_uri.include?('non_standard')
+    feature.standard = !doc_uri.include?('non-standard')
 
     #IE
     feature.min_ie = false

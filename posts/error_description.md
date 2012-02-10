@@ -1,6 +1,6 @@
 feature: error "description"
 status: avoid
-standard: true
+standard: false
 min_ie: gtie7
 ff: false
 sf: false

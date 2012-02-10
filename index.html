@@ -16,6 +16,7 @@
 
     <link href="http://fonts.googleapis.com/css?family=Francois+One|Open+Sans:400italic,400,800" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/solarized_dark.css" rel="stylesheet">
     <script src="js/libs/modernizr-2.0.min.js"></script>
     <script>if (location.host == 'h5bp.github.com') location.href = '//html5please.us/'</script>
 
@@ -53,7 +54,92 @@
     <div id="main" role="main">
       <section class="features list">
         
-          <article class="">
+          <article class=" ready">
+            <header>
+              <h2 class="name">Array.isArray </h2>
+              <h3 class="status use">use <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>Returns true if an object is an array, false if it's not.</p>
+
+<pre><code>Array.isArray([]); // true
+Array.isArray({}); // false
+</code></pre>
+
+<p>Array.isArray is not available in some old browsers, but there's a polyfill for those.</p>
+              </div>
+              <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/jblanche/polyfills/blob/master/Array.isArray.js">Array.isArray polyfill</a></p></div>
+
+              <p class="links">
+              
+                <a href="http://caniuse.com/Array_isArray">
+                  View browser share %
+                </a>
+              
+                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_isArray.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ready">
+            <header>
+              <h2 class="name">Array.prototype iteration methods </h2>
+              <h3 class="status use">use <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>All those methods have been introduced in Javascript 1.6 or Javascript 1.8 (reduce and reduceRight) and available in most browsers and for those who don't, there are polyfills.</p>
+
+<p><code>Array.filter</code> creates a new array with all elements that pass the test implemented by the provided function.</p>
+
+<p><code>Array.map</code> creates a new array with the results of calling a provided function on every element in this array.</p>
+
+<p><code>Array.some</code> tests whether some element in the array passes the test implemented by the provided function.</p>
+
+<p><code>Array.reduce</code> apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.</p>
+
+<p><code>Array.reduceRight</code> apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value.</p>
+
+<pre><code>function isBigEnough(element, index, array) {
+  return (element &gt;= 10);
+}
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough); // filtered is [12, 130, 44]
+
+[12, 5, 8, 130, 44].every(isBigEnough);           //  false
+[12, 130, 44].every(isBigEnough); // true
+
+[1, 4, 9].map(Math.sqrt); // [1, 2, 3]
+
+[2, 5, 8, 1, 4].some(isBigEnough);  // false
+[12, 5, 8, 1, 4].some(isBigEnough); // true
+
+var sum = function(a, b) { return a + b; }
+[0, 1, 2, 3].reduce(sum);  //  6
+
+[[0, 1], [2, 3], [4, 5]].reduceRight(function(a, b) {
+  return a.concat(b);
+}, []); // [4, 5, 2, 3, 0, 1]
+</code></pre>
+              </div>
+              <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js">Array.prototype iteration methods polyfill</a></p></div>
+
+              <p class="links">
+              
+                <a href="http://caniuse.com/Array_prototype_iteration">
+                  View browser share %
+                </a>
+              
+                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_prototype_iteration.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ready">
             <header>
               <h2 class="name">function "arguments" property </h2>
               <h3 class="status use">use <i></i> </h3>
@@ -61,7 +147,21 @@
             </header>
             <div class="more">
               <div class="recco">
-                
+                <p>The arguments object is a local variable available within all functions containing an array-like object corresponding to the arguments passed to a function.</p>
+
+<p>For example, if a function is passed three arguments, you can refer to the argument as follows:</p>
+
+<pre><code>  arguments[0]
+  arguments[1]
+  arguments[2]
+</code></pre>
+
+<p>You can use it as a "real" Array with :</p>
+
+<pre><code>var args = Array.prototype.slice.call(arguments);
+</code></pre>
+
+<p>The function "arguments" property is currently supported by all major javascript implementations.</p>
               </div>
               <div class="polyfills"></div>
 
@@ -77,7 +177,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ready">
             <header>
               <h2 class="name">function "caller" property </h2>
               <h3 class="status use">use <i></i> </h3>
@@ -85,7 +185,18 @@
             </header>
             <div class="more">
               <div class="recco">
-                
+                <p>The caller property is avalable on functions.
+If the function f was invoked by the top level code, the value of f.caller is null, otherwise it's the function that called f</p>
+
+<pre><code>function myFunc() {
+   if (myFunc.caller == null) {
+      return ("The function was called from the top!");
+   } else
+      return ("This function's caller was " + myFunc.caller);
+}
+</code></pre>
+
+<p>Function.caller is currently supported by all major javascript implementations.</p>
               </div>
               <div class="polyfills"></div>
 
@@ -101,223 +212,38 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ready">
             <header>
-              <h2 class="name">function statement </h2>
+              <h2 class="name">String.prototype wrappers </h2>
               <h3 class="status use">use <i></i> </h3>
               <h4 class="kind "></h4>
             </header>
             <div class="more">
               <div class="recco">
-                
+                <p>OK, not sure why you would need this, but if you do, it's avalable everywhere.</p>
+
+<pre><code>"foo".anchor('bar') // "&lt;a name="bar"&gt;foo&lt;/a&gt;"
+"foo".big()         // "&lt;big&gt;foo&lt;/big&gt;"
+"foo".blink()       // "&lt;blink&gt;foo&lt;/blink&gt;" Please don't !
+"foo".bold()        // "&lt;b&gt;foo&lt;/b&gt;"
+"foo".link('bar')   //"&lt;a href="bar"&gt;foo&lt;/a&gt;"
+</code></pre>
               </div>
               <div class="polyfills"></div>
 
               <p class="links">
               
-                <a href="http://caniuse.com/function_statement">
+                <a href="http://caniuse.com/String_prototype_wrappers">
                   View browser share %
                 </a>
               
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/function_statement.md">Edit this info</a>
+                <a href="https://github.com/h5bp/html5please/blob/master/posts/String_prototype_wrappers.md">Edit this info</a>
               </p>
             </div>
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
-            <header>
-              <h2 class="name">Octal literals </h2>
-              <h3 class="status use">use <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Octal_literals">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Octal_literals.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">RegExp "lastMatch" </h2>
-              <h3 class="status use">use <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/RegExp_lastMatch">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/RegExp_lastMatch.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">RegExp.$1-$9 </h2>
-              <h3 class="status use">use <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/RegExp_$1-$9">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/RegExp_$1-$9.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">String.prototype.anchor </h2>
-              <h3 class="status use">use <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/String_prototype_anchor">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/String_prototype_anchor.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">String.prototype.big </h2>
-              <h3 class="status use">use <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/String_prototype_big">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/String_prototype_big.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">String.prototype.blink </h2>
-              <h3 class="status use">use <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/String_prototype_blink">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/String_prototype_blink.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">String.prototype.bold </h2>
-              <h3 class="status use">use <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/String_prototype_bold">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/String_prototype_bold.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">String.prototype.link </h2>
-              <h3 class="status use">use <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/String_prototype_link">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/String_prototype_link.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
+          <article class=" ready">
             <header>
               <h2 class="name">String.prototype.substr </h2>
               <h3 class="status use">use <i></i> </h3>
@@ -325,9 +251,20 @@
             </header>
             <div class="more">
               <div class="recco">
-                
+                <p>Returns the characters in a string beginning at the specified location through the specified number of characters.
+The method is available on every browser but if you're planning to use negative indexes, please use a polyfill for IE.</p>
+
+<pre><code>// assumes a print function is defined
+var str = "abcdefghij";
+str.substr(1,2);    // 'bc'
+str.substr(-3,2);   // 'hi'
+str.substr(-3);     // 'hij'
+str.substr(1);      // 'bcdefghij'
+str.substr(-20,2);  // 'ab'
+str.substr(20,2);   // ''
+</code></pre>
               </div>
-              <div class="polyfills"></div>
+              <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/jblanche/polyfills/blob/master/String.prototype.substr.js">String.prototype.substr Polyfill</a></p></div>
 
               <p class="links">
               
@@ -341,103 +278,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
-            <header>
-              <h2 class="name">Array.isArray </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Array_isArray">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_isArray.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">Array.prototype.every </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Array_prototype_every">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_prototype_every.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">Array.prototype.filter </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Array_prototype_filter">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_prototype_filter.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">Array.prototype.forEach </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Array_prototype_forEach">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_prototype_forEach.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Array.prototype.indexOf </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -461,7 +302,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Array.prototype.lastIndexOf </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -485,103 +326,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
-            <header>
-              <h2 class="name">Array.prototype.map </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Array_prototype_map">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_prototype_map.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">Array.prototype.reduce </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Array_prototype_reduce">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_prototype_reduce.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">Array.prototype.reduceRight </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Array_prototype_reduceRight">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_prototype_reduceRight.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">Array.prototype.some </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/Array_prototype_some">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/Array_prototype_some.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Date.now </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -605,7 +350,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Date.prototype.toISOString </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -629,7 +374,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Getter in property initializer </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -653,7 +398,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">JSON </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -677,7 +422,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.create </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -701,7 +446,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.defineProperties </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -725,7 +470,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.defineProperty </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -749,7 +494,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.freeze </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -773,7 +518,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.getOwnPropertyDescriptor </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -797,7 +542,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.getOwnPropertyNames </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -821,7 +566,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.getPrototypeOf </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -845,7 +590,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.isExtensible </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -869,7 +614,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.isFrozen </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -893,7 +638,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.isSealed </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -917,7 +662,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.keys </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -941,7 +686,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.preventExtensions </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -965,7 +710,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.seal </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -989,7 +734,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Property access on strings </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -1013,7 +758,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Reserved words as property names </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -1037,7 +782,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Setter in property initializer </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -1061,7 +806,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">String.prototype.trim </h2>
               <h3 class="status caution">caution <i></i> </h3>
@@ -1085,7 +830,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">"toSource" method </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1093,7 +838,20 @@
             </header>
             <div class="more">
               <div class="recco">
-                
+                <p>Returns a string representing the source code of the object.</p>
+
+<p>Only Mozilla is implemeting this non-standard method for now.</p>
+
+<pre><code>function Dog(name, breed, color, sex) {
+   this.name=name;
+   this.breed=breed;
+   this.color=color;
+   this.sex=sex;
+}
+
+theDog = new Dog("Gabby", "Lab", "chocolate", "girl");
+theDog.toSource(); // ({name:"Gabby", breed:"Lab", color:"chocolate", sex:"girl"})
+</code></pre>
               </div>
               <div class="polyfills"></div>
 
@@ -1109,7 +867,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">__count__ </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1117,7 +875,23 @@
             </header>
             <div class="more">
               <div class="recco">
-                
+                <p>The <strong>count</strong> property, is supposed to exists on all user-defined objects by default and indicates how many properties and methods are on the object.
+This property cannot be overwritten nor can it be removed using the delete operator due to its special use.</p>
+
+<p>To be more specific, the <strong>count</strong> property always reflects the number of object instance members. Every time you add a property or method to the object, the <strong>count</strong> property is updated; whenever you remove a property or method using delete, the <strong>count</strong> property is updated. For example:</p>
+
+<pre><code>var person = {
+    name: "Nicholas"
+};
+
+alert(person.__count__);    //1
+
+person.hair = "brown";
+alert(person.__count__);    //2
+
+delete person.name;
+alert(person.__count__);    //1
+</code></pre>
               </div>
               <div class="polyfills"></div>
 
@@ -1133,7 +907,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">__defineGetter__ </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1157,7 +931,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">__defineSetter__ </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1181,7 +955,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">__noSuchMethod__ </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1205,7 +979,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">__parent__ </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1229,7 +1003,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">__proto__ </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1253,7 +1027,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Array generics </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1277,7 +1051,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Callable RegExp </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1301,7 +1075,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">const </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1325,7 +1099,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">e4x </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1349,7 +1123,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">error "description" </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1373,7 +1147,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">error "fileName" </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1397,7 +1171,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">error "lineNumber" </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1421,7 +1195,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">error "stack" </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1445,7 +1219,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Expression closures </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1469,7 +1243,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">function "arity" property </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1493,7 +1267,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">function "name" property </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1517,7 +1291,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Function.prototype.bind </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1541,7 +1315,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Function.prototype.isGenerator </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1565,7 +1339,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">let </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1589,7 +1363,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.prototype.eval </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1613,7 +1387,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.prototype.unwatch </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1637,7 +1411,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Object.prototype.watch </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1661,7 +1435,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Proxy </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1685,55 +1459,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
-            <header>
-              <h2 class="name">RegExp "x" flag </h2>
-              <h3 class="status avoid">avoid <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/RegExp_x_flag">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/RegExp_x_flag.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
-            <header>
-              <h2 class="name">RegExp "y" flag </h2>
-              <h3 class="status avoid">avoid <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="http://caniuse.com/RegExp_y_flag">
-                  View browser share %
-                </a>
-              
-                <a href="https://github.com/h5bp/html5please/blob/master/posts/RegExp_y_flag.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Sharp variables </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1757,7 +1483,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">Strict mode </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1781,7 +1507,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">String.prototype.trimLeft </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1805,7 +1531,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">String.prototype.trimRight </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1829,7 +1555,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">uneval </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1853,7 +1579,7 @@
             <footer class="tags"></footer>
           </article>
         
-          <article class="">
+          <article class=" ">
             <header>
               <h2 class="name">WeakMap </h2>
               <h3 class="status avoid">avoid <i></i> </h3>
@@ -1892,6 +1618,15 @@
     <script src="js/libs/list.js"></script>
     <script src="js/libs/classList.js"></script>
     <script src="js/script.js"></script>
+    <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+    <script>
+      // ensure JS highlight is used
+      Array.prototype.forEach.call(document.querySelectorAll('pre code'), function(node){
+        node.classList.add('javascript');
+      })
+      hljs.initHighlightingOnLoad();
+    </script>
+
     <!-- end scripts -->
     <script>
       /*

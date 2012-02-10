@@ -348,8 +348,13 @@ article h3 b i {
 article {
   color: $dark;
   margin-bottom: 2em;
+  display: none;
 
   .tags { display: none; }
+}
+
+article.ready{
+  display: block;
 }
 
 article > header {
@@ -546,12 +551,12 @@ body > footer {
   small { display:block; }
 }
 
-code {
-  background: hsl(0, 0%, 94%); border-radius: 3px; padding: 0 2px;
+pre code {
+  background: hsl(192, 100%, 11%); border-radius: 3px; padding: 0 2px;
   @include our-transition("all .3s ease-in");
 
   &:hover {
-    background: hsl(0, 0%, 88%);
+    background: hsl(192, 100%, 6%);
   }
 }
 

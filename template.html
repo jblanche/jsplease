@@ -16,6 +16,7 @@
 
     <link href="http://fonts.googleapis.com/css?family=Francois+One|Open+Sans:400italic,400,800" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/solarized_dark.css" rel="stylesheet">
     <script src="js/libs/modernizr-2.0.min.js"></script>
     <script>if (location.host == 'h5bp.github.com') location.href = '//html5please.us/'</script>
 
@@ -53,7 +54,7 @@
     <div id="main" role="main">
       <section class="features list">
         {{#features}}
-          <article class="{{tags}}">
+          <article class="{{tags}} {{ready}}">
             <header>
               <h2 class="name">{{{featuretag feature}}} </h2>
               <h3 class="status {{status}}">{{status}} <i>{{{polyfillaction tags}}}</i> </h3>
@@ -92,6 +93,15 @@
     <script src="js/libs/list.js"></script>
     <script src="js/libs/classList.js"></script>
     <script src="js/script.js"></script>
+    <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+    <script>
+      // ensure JS highlight is used
+      Array.prototype.forEach.call(document.querySelectorAll('pre code'), function(node){
+        node.classList.add('javascript');
+      })
+      hljs.initHighlightingOnLoad();
+    </script>
+
     <!-- end scripts -->
     <script>
       /*

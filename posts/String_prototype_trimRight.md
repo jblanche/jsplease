@@ -1,6 +1,6 @@
 feature: String.prototype.trimRight
 status: avoid
-standard: true
+standard: false
 min_ie: false
 ff: old
 sf: new

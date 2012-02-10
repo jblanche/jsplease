@@ -1,6 +1,6 @@
 feature: e4x
 status: avoid
-standard: true
+standard: false
 min_ie: false
 ff: old
 sf: false

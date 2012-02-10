@@ -1,6 +1,6 @@
 feature: Function.prototype.isGenerator
 status: avoid
-standard: true
+standard: false
 min_ie: false
 ff: new
 sf: false

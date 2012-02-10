@@ -16,7 +16,7 @@ classList = (function() {
             return function(value) {
                 var classes = node.className.split(re),
                     index = indexOf.call(classes, value);
-            
+
                 fn(classes, index, value);
                 node.className = classes.join(" ");
             }
@@ -27,11 +27,11 @@ classList = (function() {
             add: update(node, function(classes, index, value) {
                 ~index || classes.push(value);
             }),
-        
+
             remove: update(node, function(classes, index, value) {
                 ~index && classes.splice(index, 1);
             }),
-        
+
             toggle: update(node, function(classes, index, value) {
                 ~index ? classes.splice(index, 1) : classes.push(value);
             })
