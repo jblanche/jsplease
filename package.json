@@ -1,13 +1,13 @@
 {
-  "author": "Divya Manian, Paul Irish (nimbupani.com, paulirish.com)",
-  "name": "html5please",
-  "description": "Generator for html5please website",
+  "author": "Jonathan Blanchet (jblanche.fr)",
+  "name": "jsplease",
+  "description": "Generator for jsplease website",
   "version": "0.0.0",
-  "homepage": "html5please.com",
+  "homepage": "jsplease.com",
   "main": "lib/index",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nimbupani/GFS.git"
+    "url": "git://github.com/jblanche/jsplease.git"
   },
   "engines": {
     "node": "~v0.6"
