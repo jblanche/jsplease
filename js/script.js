@@ -18,6 +18,14 @@ if (window.attachEvent) {
   addEvent = function (el, ev, cb, capture) { el.addEventListener(ev, cb, capture); };
 }
 
+
+// JS Highlighting
+[].forEach.call(document.querySelectorAll('pre code'), function(node){
+  node.classList.add('javascript');
+});
+hljs.initHighlightingOnLoad();
+
+
 // gtieX augments. so a search is matching .gtie8,
 // need to match .gtie7 and .gtie6 too
 var ies = ['gtie6', 'gtie7', 'gtie8', 'gtie9', 'gtie10'];

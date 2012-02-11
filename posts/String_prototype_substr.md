@@ -7,7 +7,7 @@ sf: old
 webkit: true
 chrome: old
 opera: old
-tags:
+tags: polyfill
 kind:
 polyfillurls: [String.prototype.substr Polyfill](https://github.com/jblanche/polyfills/blob/master/String.prototype.substr.js)
 ready: ready

@@ -26,8 +26,12 @@
       <h1>JS Next <img src="img/js-logo.jpg" alt="HTML5 Logo"> Please</h1>
       <h2>
         <b>Use the new and shiny responsibly.</b>
-        <p>Javascript is moving quickly. Take a look at the newest features, know if they are ready for use, and if so find out how you should use them – with polyfills, fallbacks or as they are. <a href="#moredetails" id="clickmore">tell me more</a>
-          </p>
+        <p>
+          The goal of this website is to tell you the Javascript features you can or can't use safely. The list of items is currently taken from Kangax ES5 compatibility table but other sources are more than welcome (Ecmascript wikis...)
+        </p>
+        <p>
+          Javascript is moving quickly. Take a look at the newest features, know if they are ready for use, and if so find out how you should use them – with polyfills, fallbacks or as they are. <a href="#moredetails" id="clickmore">tell me more</a>
+        </p>
           <div id="moredetails">
             <p><a href="http://caniuse.com">When Can I Use</a> tells you the browser support story, while <a href="http://modernizr.com">Modernizr</a> gives you the power of feature detection. HTML5 Please helps you out with recommendations for <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">polyfills</a> and implementation so you can decide if and how to put each of these features to use.</p>
             <p>The recommendations below represent the collective knowledge of developers who have been deep in the HTML5 trenches. We hope they serve you well.</p>
@@ -90,15 +94,8 @@
     <script src="js/libs/augment.js"></script>
     <script src="js/libs/list.js"></script>
     <script src="js/libs/classList.js"></script>
+    <script src="js/libs/highlight.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
-    <script>
-      // ensure JS highlight is used
-      Array.prototype.forEach.call(document.querySelectorAll('pre code'), function(node){
-        node.classList.add('javascript');
-      })
-      hljs.initHighlightingOnLoad();
-    </script>
 
     <!-- end scripts -->
     <script>

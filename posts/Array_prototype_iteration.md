@@ -7,7 +7,7 @@ sf: old
 webkit: true
 chrome: old
 opera: old
-tags:
+tags: polyfill
 kind:
 polyfillurls: [Array.prototype iteration methods polyfill](https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js)
 ready: ready
@@ -24,25 +24,29 @@ All those methods have been introduced in Javascript 1.6 or Javascript 1.8 (redu
 
 `Array.reduceRight` apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value.
 
-    function isBigEnough(element, index, array) {
-      return (element >= 10);
-    }
-    var filtered = [12, 5, 8, 130, 44].filter(isBigEnough); // filtered is [12, 130, 44]
+    function isBigEnough(element) { return (element >= 10); };
+    function sum(a, b) { return a + b; };
+    function flatten(a, b) { return a.concat(b); }
 
-    [12, 5, 8, 130, 44].every(isBigEnough);           //  false
-    [12, 130, 44].every(isBigEnough); // true
+    // Filter
+    [12, 5, 8, 130, 44].filter(isBigEnough); // [12, 130, 44]
 
-    [1, 4, 9].map(Math.sqrt); // [1, 2, 3]
+    // Every
+    [12, 5, 8, 130, 44].every(isBigEnough); //  false
+    [12, 130, 44].every(isBigEnough);       // true
 
-    [2, 5, 8, 1, 4].some(isBigEnough);  // false
-    [12, 5, 8, 1, 4].some(isBigEnough); // true
+    // Map
+    [1, 4, 9].map(Math.sqrt);               // [1, 2, 3]
 
-    var sum = function(a, b) { return a + b; }
-    [0, 1, 2, 3].reduce(sum);  //  6
+    // Some
+    [2, 5, 8, 1, 4].some(isBigEnough);      // false
+    [12, 5, 8, 1, 4].some(isBigEnough);     // true
 
-    [[0, 1], [2, 3], [4, 5]].reduceRight(function(a, b) {
-      return a.concat(b);
-    }, []); // [4, 5, 2, 3, 0, 1]
+    // Reduce
+    [0, 1, 2, 3].reduce(sum);               //  6
+
+    // ReduceRight
+    [[0, 1], [2, 3], [4, 5]].reduceRight(flatten, []); // [4, 5, 2, 3, 0, 1]
 
 
 

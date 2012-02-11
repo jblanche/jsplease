@@ -26,8 +26,12 @@
       <h1>JS Next <img src="img/js-logo.jpg" alt="HTML5 Logo"> Please</h1>
       <h2>
         <b>Use the new and shiny responsibly.</b>
-        <p>Javascript is moving quickly. Take a look at the newest features, know if they are ready for use, and if so find out how you should use them – with polyfills, fallbacks or as they are. <a href="#moredetails" id="clickmore">tell me more</a>
-          </p>
+        <p>
+          The goal of this website is to tell you the Javascript features you can or can't use safely. The list of items is currently taken from Kangax ES5 compatibility table but other sources are more than welcome (Ecmascript wikis...)
+        </p>
+        <p>
+          Javascript is moving quickly. Take a look at the newest features, know if they are ready for use, and if so find out how you should use them – with polyfills, fallbacks or as they are. <a href="#moredetails" id="clickmore">tell me more</a>
+        </p>
           <div id="moredetails">
             <p><a href="http://caniuse.com">When Can I Use</a> tells you the browser support story, while <a href="http://modernizr.com">Modernizr</a> gives you the power of feature detection. HTML5 Please helps you out with recommendations for <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">polyfills</a> and implementation so you can decide if and how to put each of these features to use.</p>
             <p>The recommendations below represent the collective knowledge of developers who have been deep in the HTML5 trenches. We hope they serve you well.</p>
@@ -53,10 +57,10 @@
     <div id="main" role="main">
       <section class="features list">
         
-          <article class=" ready">
+          <article class="polyfill ready">
             <header>
               <h2 class="name">Array.isArray </h2>
-              <h3 class="status use">use <i></i> </h3>
+              <h3 class="status use">use <i>with <b class=polyfill>polyfill</b></i> </h3>
               <h4 class="kind "></h4>
             </header>
             <div class="more">
@@ -76,13 +80,13 @@ Array.isArray({}); // false
                 <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_isArray.md">Edit this info</a>
               </p>
             </div>
-            <footer class="tags"></footer>
+            <footer class="tags">polyfill</footer>
           </article>
         
-          <article class=" ready">
+          <article class="polyfill ready">
             <header>
               <h2 class="name">Array.prototype iteration methods </h2>
-              <h3 class="status use">use <i></i> </h3>
+              <h3 class="status use">use <i>with <b class=polyfill>polyfill</b></i> </h3>
               <h4 class="kind "></h4>
             </header>
             <div class="more">
@@ -99,25 +103,29 @@ Array.isArray({}); // false
 
 <p><code>Array.reduceRight</code> apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value.</p>
 
-<pre><code>function isBigEnough(element, index, array) {
-  return (element &gt;= 10);
-}
-var filtered = [12, 5, 8, 130, 44].filter(isBigEnough); // filtered is [12, 130, 44]
+<pre><code>function isBigEnough(element) { return (element &gt;= 10); };
+function sum(a, b) { return a + b; };
+function flatten(a, b) { return a.concat(b); }
 
-[12, 5, 8, 130, 44].every(isBigEnough);           //  false
-[12, 130, 44].every(isBigEnough); // true
+// Filter
+[12, 5, 8, 130, 44].filter(isBigEnough); // [12, 130, 44]
 
-[1, 4, 9].map(Math.sqrt); // [1, 2, 3]
+// Every
+[12, 5, 8, 130, 44].every(isBigEnough); //  false
+[12, 130, 44].every(isBigEnough);       // true
 
-[2, 5, 8, 1, 4].some(isBigEnough);  // false
-[12, 5, 8, 1, 4].some(isBigEnough); // true
+// Map
+[1, 4, 9].map(Math.sqrt);               // [1, 2, 3]
 
-var sum = function(a, b) { return a + b; }
-[0, 1, 2, 3].reduce(sum);  //  6
+// Some
+[2, 5, 8, 1, 4].some(isBigEnough);      // false
+[12, 5, 8, 1, 4].some(isBigEnough);     // true
 
-[[0, 1], [2, 3], [4, 5]].reduceRight(function(a, b) {
-  return a.concat(b);
-}, []); // [4, 5, 2, 3, 0, 1]
+// Reduce
+[0, 1, 2, 3].reduce(sum);               //  6
+
+// ReduceRight
+[[0, 1], [2, 3], [4, 5]].reduceRight(flatten, []); // [4, 5, 2, 3, 0, 1]
 </code></pre>
               </div>
               <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js">Array.prototype iteration methods polyfill</a></p></div>
@@ -127,7 +135,39 @@ var sum = function(a, b) { return a + b; }
                 <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_prototype_iteration.md">Edit this info</a>
               </p>
             </div>
-            <footer class="tags"></footer>
+            <footer class="tags">polyfill</footer>
+          </article>
+        
+          <article class="polyfill ready">
+            <header>
+              <h2 class="name">Array.prototype.indexOf and lastIndexOf </h2>
+              <h3 class="status use">use <i>with <b class=polyfill>polyfill</b></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>Array.prototype.indexOf and Array.prototype.lastIndexOf were introduced in javascript 1.6. They are available everywhere except ie&lt;9, but there is a polyfill.</p>
+
+<p>Array.prototype.indexOf returns the first index at which a given element can be found in the array, or -1 if it is not present.</p>
+
+<p>Array.prototype.indexOf returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards.</p>
+
+<pre><code>var array = [2, 5, 9, 2];
+
+array.indexOf(2);         // 0
+array.indexOf(7);         // -1
+array.lastIndexOf(2);     // 3
+array.lastIndexOf(7);     // -1
+</code></pre>
+              </div>
+              <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js">Array.prototype.indexOf and lastIndexOf polyfill</a></p></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_prototype_indexOf.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags">polyfill</footer>
           </article>
         
           <article class=" ready">
@@ -222,10 +262,10 @@ If the function f was invoked by the top level code, the value of f.caller is nu
             <footer class="tags"></footer>
           </article>
         
-          <article class=" ready">
+          <article class="polyfill ready">
             <header>
               <h2 class="name">String.prototype.substr </h2>
-              <h3 class="status use">use <i></i> </h3>
+              <h3 class="status use">use <i>with <b class=polyfill>polyfill</b></i> </h3>
               <h4 class="kind "></h4>
             </header>
             <div class="more">
@@ -250,27 +290,7 @@ str.substr(20,2);   // ''
                 <a href="https://github.com/jblanche/jsplease/blob/master/posts/String_prototype_substr.md">Edit this info</a>
               </p>
             </div>
-            <footer class="tags"></footer>
-          </article>
-        
-          <article class=" ">
-            <header>
-              <h2 class="name">Array.prototype.indexOf </h2>
-              <h3 class="status caution">caution <i></i> </h3>
-              <h4 class="kind "></h4>
-            </header>
-            <div class="more">
-              <div class="recco">
-                
-              </div>
-              <div class="polyfills"></div>
-
-              <p class="links">
-              
-                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_prototype_indexOf.md">Edit this info</a>
-              </p>
-            </div>
-            <footer class="tags"></footer>
+            <footer class="tags">polyfill</footer>
           </article>
         
           <article class=" ">
@@ -1375,15 +1395,8 @@ alert(person.__count__);    //1
     <script src="js/libs/augment.js"></script>
     <script src="js/libs/list.js"></script>
     <script src="js/libs/classList.js"></script>
+    <script src="js/libs/highlight.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
-    <script>
-      // ensure JS highlight is used
-      Array.prototype.forEach.call(document.querySelectorAll('pre code'), function(node){
-        node.classList.add('javascript');
-      })
-      hljs.initHighlightingOnLoad();
-    </script>
 
     <!-- end scripts -->
     <script>

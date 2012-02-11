@@ -7,7 +7,7 @@ sf: new
 webkit: true
 chrome: old
 opera: old
-tags:
+tags: polyfill
 kind:
 polyfillurls: [Array.isArray polyfill](https://github.com/jblanche/polyfills/blob/master/Array.isArray.js)
 ready: ready
