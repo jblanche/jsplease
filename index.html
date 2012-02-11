@@ -1,1 +1,1411 @@
-My GitHub Page
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title>JS-NEXT Please - Use the new and shiny responsibly</title>
+    <meta name="description" content="Look up HTML5, CSS3, etc features, know if they are ready for use, and if so find out how you should use them – with polyfills, fallbacks or as they are.">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <base target="_blank"> <!-- open all links on page in a new tab. hope that's cool with you. -->
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <link href="http://fonts.googleapis.com/css?family=Francois+One|Open+Sans:400italic,400,800" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/solarized_dark.css" rel="stylesheet">
+    <script src="js/libs/modernizr-2.0.min.js"></script>
+
+
+  </head>
+  <body id="gfs">
+    <header class="index">
+      <h1>JS Next <img src="img/js-logo.jpg" alt="HTML5 Logo"> Please</h1>
+      <h2>
+        <b>Use the new and shiny responsibly.</b>
+        <p>
+          The goal of this website is to tell you the Javascript features you can or can't use safely. The list of items is currently taken from Kangax ES5 compatibility table but other sources are more than welcome (Ecmascript wikis...)
+        </p>
+        <p>
+          Javascript is moving quickly. Take a look at the newest features, know if they are ready for use, and if so find out how you should use them – with polyfills, fallbacks or as they are. <a href="#moredetails" id="clickmore">tell me more</a>
+        </p>
+          <div id="moredetails">
+            <p><a href="http://caniuse.com">When Can I Use</a> tells you the browser support story, while <a href="http://modernizr.com">Modernizr</a> gives you the power of feature detection. HTML5 Please helps you out with recommendations for <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">polyfills</a> and implementation so you can decide if and how to put each of these features to use.</p>
+            <p>The recommendations below represent the collective knowledge of developers who have been deep in the HTML5 trenches. We hope they serve you well.</p>
+            <p>Read Divya's backstory <a href="http://nimbupani.com/html5please.html">about this site</a>.</p>
+          </div>
+      </h2>
+      <div>
+        <input id="livesearch" class="search" name="livesearch" placeholder="type to filter" type="search" value="" autofocus />
+        <a href="/" id="searchurl">link to this search ›</a>
+        <div class="explore-features">
+          <h2><b>Explore</b> features</h2>
+          <ul>
+            <li>supported by <a href="#gtie9">IE10+</a> <a href="#gtie8">IE9+</a> <a href="#gtie7">IE8+</a> <a href="#gtie6">IE7+</a> <a href="#noie">no IE</a> </li>
+            <li>not supported by <a href="#nomobile">mobile devices</a> <a href="#nooldmobile">older mobile devices</a></li>
+            <li>requiring <a href="#prefixes">prefixes</a><a href="#polyfill">polyfill</a><a href="#fallback">fallback</a></li>
+            <li>that you should <a href="#use">use</a> <a href="#caution">use with caution</a> <a href="#avoid">avoid</a></li>
+            <li>that are <a href="#css">css</a> <a href="#html">html</a><a href="#api">api</a><a href="#js">js</a></li>
+            <li> <a href="#showall">all features</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" role="main">
+      <section class="features list">
+        
+          <article class="polyfill ready">
+            <header>
+              <h2 class="name">Array.isArray </h2>
+              <h3 class="status use">use <i>with <b class=polyfill>polyfill</b></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>Returns true if an object is an array, false if it's not.</p>
+
+<pre><code>Array.isArray([]); // true
+Array.isArray({}); // false
+</code></pre>
+
+<p>Array.isArray is not available in some old browsers, but there's a polyfill for those.</p>
+              </div>
+              <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/jblanche/polyfills/blob/master/Array.isArray.js">Array.isArray polyfill</a></p></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_isArray.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags">polyfill</footer>
+          </article>
+        
+          <article class="polyfill ready">
+            <header>
+              <h2 class="name">Array.prototype iteration methods </h2>
+              <h3 class="status use">use <i>with <b class=polyfill>polyfill</b></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>All those methods have been introduced in Javascript 1.6 or Javascript 1.8 (reduce and reduceRight) and available in most browsers and for those who don't, there are polyfills.</p>
+
+<p><code>Array.filter</code> creates a new array with all elements that pass the test implemented by the provided function.</p>
+
+<p><code>Array.map</code> creates a new array with the results of calling a provided function on every element in this array.</p>
+
+<p><code>Array.some</code> tests whether some element in the array passes the test implemented by the provided function.</p>
+
+<p><code>Array.reduce</code> apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.</p>
+
+<p><code>Array.reduceRight</code> apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value.</p>
+
+<pre><code>function isBigEnough(element) { return (element &gt;= 10); };
+function sum(a, b) { return a + b; };
+function flatten(a, b) { return a.concat(b); }
+
+// Filter
+[12, 5, 8, 130, 44].filter(isBigEnough); // [12, 130, 44]
+
+// Every
+[12, 5, 8, 130, 44].every(isBigEnough); //  false
+[12, 130, 44].every(isBigEnough);       // true
+
+// Map
+[1, 4, 9].map(Math.sqrt);               // [1, 2, 3]
+
+// Some
+[2, 5, 8, 1, 4].some(isBigEnough);      // false
+[12, 5, 8, 1, 4].some(isBigEnough);     // true
+
+// Reduce
+[0, 1, 2, 3].reduce(sum);               //  6
+
+// ReduceRight
+[[0, 1], [2, 3], [4, 5]].reduceRight(flatten, []); // [4, 5, 2, 3, 0, 1]
+</code></pre>
+              </div>
+              <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js">Array.prototype iteration methods polyfill</a></p></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_prototype_iteration.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags">polyfill</footer>
+          </article>
+        
+          <article class="polyfill ready">
+            <header>
+              <h2 class="name">Array.prototype.indexOf and lastIndexOf </h2>
+              <h3 class="status use">use <i>with <b class=polyfill>polyfill</b></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>Array.prototype.indexOf and Array.prototype.lastIndexOf were introduced in javascript 1.6. They are available everywhere except ie&lt;9, but there is a polyfill.</p>
+
+<p>Array.prototype.indexOf returns the first index at which a given element can be found in the array, or -1 if it is not present.</p>
+
+<p>Array.prototype.indexOf returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards.</p>
+
+<pre><code>var array = [2, 5, 9, 2];
+
+array.indexOf(2);         // 0
+array.indexOf(7);         // -1
+array.lastIndexOf(2);     // 3
+array.lastIndexOf(7);     // -1
+</code></pre>
+              </div>
+              <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js">Array.prototype.indexOf and lastIndexOf polyfill</a></p></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_prototype_indexOf.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags">polyfill</footer>
+          </article>
+        
+          <article class=" ready">
+            <header>
+              <h2 class="name">function "arguments" property </h2>
+              <h3 class="status use">use <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>The arguments object is a local variable available within all functions containing an array-like object corresponding to the arguments passed to a function.</p>
+
+<p>For example, if a function is passed three arguments, you can refer to the argument as follows:</p>
+
+<pre><code>  arguments[0]
+  arguments[1]
+  arguments[2]
+</code></pre>
+
+<p>You can use it as a "real" Array with :</p>
+
+<pre><code>var args = Array.prototype.slice.call(arguments);
+</code></pre>
+
+<p>The function "arguments" property is currently supported by all major javascript implementations.</p>
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/function_arguments_property.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ready">
+            <header>
+              <h2 class="name">function "caller" property </h2>
+              <h3 class="status use">use <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>The caller property is avalable on functions.
+If the function f was invoked by the top level code, the value of f.caller is null, otherwise it's the function that called f</p>
+
+<pre><code>function myFunc() {
+   if (myFunc.caller == null) {
+      return ("The function was called from the top!");
+   } else
+      return ("This function's caller was " + myFunc.caller);
+}
+</code></pre>
+
+<p>Function.caller is currently supported by all major javascript implementations.</p>
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/function_caller_property.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ready">
+            <header>
+              <h2 class="name">String.prototype wrappers </h2>
+              <h3 class="status use">use <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>OK, not sure why you would need this, but if you do, it's avalable everywhere.</p>
+
+<pre><code>"foo".anchor('bar') // "&lt;a name="bar"&gt;foo&lt;/a&gt;"
+"foo".big()         // "&lt;big&gt;foo&lt;/big&gt;"
+"foo".blink()       // "&lt;blink&gt;foo&lt;/blink&gt;" Please don't !
+"foo".bold()        // "&lt;b&gt;foo&lt;/b&gt;"
+"foo".link('bar')   //"&lt;a href="bar"&gt;foo&lt;/a&gt;"
+</code></pre>
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/String_prototype_wrappers.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class="polyfill ready">
+            <header>
+              <h2 class="name">String.prototype.substr </h2>
+              <h3 class="status use">use <i>with <b class=polyfill>polyfill</b></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>Returns the characters in a string beginning at the specified location through the specified number of characters.
+The method is available on every browser but if you're planning to use negative indexes, please use a polyfill for IE.</p>
+
+<pre><code>// assumes a print function is defined
+var str = "abcdefghij";
+str.substr(1,2);    // 'bc'
+str.substr(-3,2);   // 'hi'
+str.substr(-3);     // 'hij'
+str.substr(1);      // 'bcdefghij'
+str.substr(-20,2);  // 'ab'
+str.substr(20,2);   // ''
+</code></pre>
+              </div>
+              <div class="polyfills"><b>Recommended polyfills: </b><p><a href="https://github.com/jblanche/polyfills/blob/master/String.prototype.substr.js">String.prototype.substr Polyfill</a></p></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/String_prototype_substr.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags">polyfill</footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Array.prototype.lastIndexOf </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_prototype_lastIndexOf.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Date.now </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Date_now.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Date.prototype.toISOString </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Date_prototype_toISOString.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Getter in property initializer </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Getter_in_property_initializer.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">JSON </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/JSON.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.create </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_create.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.defineProperties </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_defineProperties.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.defineProperty </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_defineProperty.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.freeze </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_freeze.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.getOwnPropertyDescriptor </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_getOwnPropertyDescriptor.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.getOwnPropertyNames </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_getOwnPropertyNames.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.getPrototypeOf </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_getPrototypeOf.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.isExtensible </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_isExtensible.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.isFrozen </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_isFrozen.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.isSealed </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_isSealed.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.keys </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_keys.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.preventExtensions </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_preventExtensions.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.seal </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_seal.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Property access on strings </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Property_access_on_strings.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Reserved words as property names </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Reserved_words_as_property_names.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Setter in property initializer </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Setter_in_property_initializer.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">String.prototype.trim </h2>
+              <h3 class="status caution">caution <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/String_prototype_trim.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">"toSource" method </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>Returns a string representing the source code of the object.</p>
+
+<p>Only Mozilla is implemeting this non-standard method for now.</p>
+
+<pre><code>function Dog(name, breed, color, sex) {
+   this.name=name;
+   this.breed=breed;
+   this.color=color;
+   this.sex=sex;
+}
+
+theDog = new Dog("Gabby", "Lab", "chocolate", "girl");
+theDog.toSource(); // ({name:"Gabby", breed:"Lab", color:"chocolate", sex:"girl"})
+</code></pre>
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/toSource_method.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">__count__ </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                <p>The <strong>count</strong> property, is supposed to exists on all user-defined objects by default and indicates how many properties and methods are on the object.
+This property cannot be overwritten nor can it be removed using the delete operator due to its special use.</p>
+
+<p>To be more specific, the <strong>count</strong> property always reflects the number of object instance members. Every time you add a property or method to the object, the <strong>count</strong> property is updated; whenever you remove a property or method using delete, the <strong>count</strong> property is updated. For example:</p>
+
+<pre><code>var person = {
+    name: "Nicholas"
+};
+
+alert(person.__count__);    //1
+
+person.hair = "brown";
+alert(person.__count__);    //2
+
+delete person.name;
+alert(person.__count__);    //1
+</code></pre>
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/__count__.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">__defineGetter__ </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/__defineGetter__.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">__defineSetter__ </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/__defineSetter__.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">__noSuchMethod__ </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/__noSuchMethod__.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">__parent__ </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/__parent__.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">__proto__ </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/__proto__.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Array generics </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Array_generics.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Callable RegExp </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Callable_RegExp.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">const </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/const.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">e4x </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/e4x.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">error "description" </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/error_description.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">error "fileName" </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/error_fileName.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">error "lineNumber" </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/error_lineNumber.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">error "stack" </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/error_stack.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Expression closures </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Expression_closures.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">function "arity" property </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/function_arity_property.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">function "name" property </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/function_name_property.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Function.prototype.bind </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Function_prototype_bind.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Function.prototype.isGenerator </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Function_prototype_isGenerator.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">let </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/let.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.prototype.eval </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_prototype_eval.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.prototype.unwatch </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_prototype_unwatch.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Object.prototype.watch </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Object_prototype_watch.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Proxy </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Proxy.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Sharp variables </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Sharp_variables.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">Strict mode </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/Strict_mode.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">String.prototype.trimLeft </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/String_prototype_trimLeft.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">String.prototype.trimRight </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/String_prototype_trimRight.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">uneval </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/uneval.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+          <article class=" ">
+            <header>
+              <h2 class="name">WeakMap </h2>
+              <h3 class="status avoid">avoid <i></i> </h3>
+              <h4 class="kind "></h4>
+            </header>
+            <div class="more">
+              <div class="recco">
+                
+              </div>
+              <div class="polyfills"></div>
+
+              <p class="links">
+              
+                <a href="https://github.com/jblanche/jsplease/blob/master/posts/WeakMap.md">Edit this info</a>
+              </p>
+            </div>
+            <footer class="tags"></footer>
+          </article>
+        
+      </section>
+    </div>
+    <footer>
+      <p>JS NEXT Please is a community project (<a href="#">contribute on github!</a>) initiated by Jonathan Blanchet and heavily inspired by <a href="http://html5please.us" title="html5please">HTML5please.us</a> with the help from the people behind <a href="http://html5boilerplate.com">HTML5 Boilerplate</a>, <a href="http://modernizr.com">Modernizr</a> &amp; <a href="http://css3please.com">CSS3 Please</a>.</p>
+      <p class="builders">
+      <a href="http://twitter.com/jblanchefr"><img src="http://api.twitter.com/1/users/profile_image/jblanchefr?size=normal" alt="Jonathan Blanchet"><b>Jonathan</b> Blanchet</a>
+      </p>
+    </footer>
+
+    <!-- scripts concatenated and minified via ant build script -->
+    <script src="js/libs/augment.js"></script>
+    <script src="js/libs/list.js"></script>
+    <script src="js/libs/classList.js"></script>
+    <script src="js/libs/highlight.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- end scripts -->
+    <script>
+      /*
+        var _gaq=[['_setAccount','UA-17904194-3'],['_trackPageview'],['_trackPageLoadTime']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      */
+    </script>
+  </body>
+</html>
