@@ -12,21 +12,34 @@ kind:
 polyfillurls: [Array.prototype iteration methods polyfill](https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js)
 ready: ready
 
-All those methods have been introduced in Javascript 1.6 or Javascript 1.8 (reduce and reduceRight) and available in most browsers and for those who don't, there are polyfills.
+All methods have been introduced in EcmaScript 5 & 5.1 and available in most browsers and for those who don't, there are polyfills.
 
-`Array.filter` creates a new array with all elements that pass the test implemented by the provided function.
+`Array.prototype.forEach` calls a callback function once for each item present in the array, in ascending order, returns `undefined`
 
-`Array.map` creates a new array with the results of calling a provided function on every element in this array.
+`Array.prototype.filter` creates a new array with all elements that pass the test implemented by the provided function.
 
-`Array.some` tests whether some element in the array passes the test implemented by the provided function.
+`Array.prototype.map` creates a new array with the results of calling a provided function on every element in this array.
 
-`Array.reduce` apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.
+`Array.prototype.some` tests whether some element in the array passes the test implemented by the provided function.
 
-`Array.reduceRight` apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value.
+`Array.prototype.reduce` apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.
+
+`Array.prototype.reduceRight` apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value.
 
     function isBigEnough(element) { return (element >= 10); };
     function sum(a, b) { return a + b; };
     function flatten(a, b) { return a.concat(b); }
+
+
+    // forEach
+    [12, 5, 8, 130, 44].forEach(function( value ) {
+      console.log( value );
+    });
+    // 12
+    // 5
+    // 8
+    // 130
+    // 44
 
     // Filter
     [12, 5, 8, 130, 44].filter(isBigEnough); // [12, 130, 44]
